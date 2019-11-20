@@ -14,7 +14,7 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 
 class ProductAdmin(admin.ModelAdmin):
-         list_display = ('name','name','name')
+         list_display = ('rclient','nclient')
 
 admin.site.register(Product, ProductAdmin)
 

@@ -12,12 +12,31 @@ class Category(models.Model):
     name = models.CharField(max_length=30, unique=True)
     slug = models.SlugField(max_length=30, unique=True)
 
+    class Meta:
+        verbose_name = "categoria"
+        verbose_name_plural = "categorias"
+
+        
+
 class Product(models.Model):
-    name = models.CharField(max_length=255, unique=True)
-    slug = models.SlugField(max_length=30, unique=True)
+    rclient = models.CharField(max_length=200, verbose_name="Rut del cliente")
+    nclient = models.CharField(max_length=200, verbose_name="Nombre del cliente")
+    fnac = models.DateTimeField(auto_now=True,verbose_name="Fecha de nacimiento")
+    correo = models.EmailField(max_length=200, verbose_name="Correo electronico")
+    phone = models.IntegerField( verbose_name="Numero de telefono")
+    
     category = models.ForeignKey(
         Category,
         related_name='products',
         on_delete=models.PROTECT,
         default=1
     )
+    date = models.DateTimeField(default=datetime.now, blank=True,verbose_name="Fecha")
+
+    class Meta:
+        verbose_name = "reserva"
+        verbose_name_plural = "reservas"
+      
+    def __str__(self):
+       return '%s %s' % (self.rclient, self.nclient)
+        
