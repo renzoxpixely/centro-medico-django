@@ -9,14 +9,14 @@ from datetime import datetime
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=30, unique=True)
-    slug = models.SlugField(max_length=30, unique=True)
+    sucursal = models.CharField(max_length=30, unique=True)
+    codigo = models.CharField(max_length=30, unique=True)
 
     class Meta:
-        verbose_name = "categoria"
-        verbose_name_plural = "categorias"
-
-        
+        verbose_name = "sucursal"
+        verbose_name_plural = "sucursales"
+    def __str__(self):
+       return '%s %s' % (self.sucursal, self.codigo)
 
 class Product(models.Model):
     rclient = models.CharField(max_length=200, verbose_name="Rut del cliente")

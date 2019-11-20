@@ -9,7 +9,7 @@ from .models import Product
 
 
 class CategoryAdmin(admin.ModelAdmin):
-         list_display = ('name','slug')
+         list_display = ('sucursal','codigo')
 
 admin.site.register(Category, CategoryAdmin)
 
